@@ -1,0 +1,165 @@
+<template>
+    <div class="city_body">
+        <div class="city_list">
+            <div class="city_hot">
+                <h2>热门城市</h2>
+                <ul class="clearfix">
+                    <li>深圳</li>
+                    <li>深圳</li>
+                    <li>深圳</li>
+                    <li>深圳</li>
+                    <li>深圳</li>
+                    <li>深圳</li>
+                </ul>
+            </div>  
+            <div class="city_sort">
+                <div>
+                    <h2>A</h2>
+                    <ul>
+                        <li>阿拉三名</li>
+                        <li>鞍山</li>
+                        <li>安庆</li>
+                        <li>安阳</li>
+                    </ul>
+                </div>
+                <div>
+                    <h2>B</h2>
+                    <ul>
+                        <li>北京</li>
+                        <li>保定</li>
+                        <li>对对对</li>
+                        <li>安阳</li>
+                    </ul>
+                </div>
+                <div>
+                    <h2>C</h2>
+                    <ul>
+                        <li>北京</li>
+                        <li>保定</li>
+                        <li>对对对</li>
+                        <li>安阳</li>
+                    </ul>
+                </div>
+                <div>
+                    <h2>D</h2>
+                    <ul>
+                        <li>北京</li>
+                        <li>保定</li>
+                        <li>对对对</li>
+                        <li>安阳</li>
+                    </ul>
+                </div>
+                <div>
+                    <h2>E</h2>
+                    <ul>
+                        <li>北京</li>
+                        <li>保定</li>
+                        <li>对对对</li>
+                        <li>安阳</li>
+                    </ul>
+                </div>
+                <div>
+                    <h2>F</h2>
+                    <ul>
+                        <li>北京</li>
+                        <li>保定</li>
+                        <li>对对对</li>
+                        <li>安阳</li>
+                    </ul>
+                </div> 
+            </div>
+               <div class="city_index">
+                <ul>
+                    <li>A</li>
+                    <li>B</li>
+                    <li>C</li>
+                    <li>D</li>
+                    <li>E</li>
+                </ul>
+            </div>   
+        </div>
+        
+    </div>
+</template>
+<script>
+export default {
+    name:"City"
+}
+</script>
+<style lang="scss" scoped>
+    #content .city_body{
+        margin-top: 45px;
+        display: flex;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+       
+        .city_list{
+            flex: 1;
+            overflow: auto;
+            background: #fff5f0;
+            &::-webkit-scrollbar{
+               background-color: transparent;
+               width: 0;
+            }
+
+        }
+        .city_hot{
+            margin-top: 20px;
+            h2{
+                padding-left: 15px;
+                line-height: 30px;
+                font-size: 14px;
+                background: #f0f0f0;
+                font-weight: normal;
+            }
+            ul{
+                overflow: hidden;
+                li{
+                float: left;
+                background: #fff;
+                width: 29%;
+                height: 33px;
+                margin-top: 15px;
+                margin-left: 3%;
+                padding: 0.4px;
+                border: 1px solid #dbb4b4;
+                text-align: center;
+                border-radius: 3px;
+                line-height: 33px;
+                box-sizing: border-box;
+                }
+            }
+        }
+        .city_sort{
+            div{
+                margin-top: 20px;
+            }
+            h2{
+                padding-left: 15px;
+                line-height: 30px;
+                font-size: 14px;
+                background: #f0f0f0;
+                font-weight: normal;
+            }
+            ul{
+                padding-left: 10px;
+                padding-top: 10px;
+                li{
+                    line-height: 30px;
+
+                }
+
+            }
+        }
+        .city_index{
+            width: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+            border-left: 1px solid #e6e6e6;
+        }
+    }
+</style>
