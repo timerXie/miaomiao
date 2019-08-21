@@ -35,7 +35,7 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-#main{
+#main {
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -81,10 +81,10 @@ export default {
           color: #ef4238;
           border-bottom: 2px solid #ef4238;
         }
-         &.router-link-active {
-        color: #ef4238;
-        border-bottom: 2px solid #ef4238;
-      }
+        &.router-link-active {
+          color: #ef4238;
+          border-bottom: 2px solid #ef4238;
+        }
       }
     }
     .search_entry {
@@ -95,7 +95,7 @@ export default {
         color: #ef4238;
         border-bottom: 2px solid #ef4238;
       }
-       &.router-link-active {
+      &.router-link-active {
         color: #ef4238;
         border-bottom: 2px solid #ef4238;
       }

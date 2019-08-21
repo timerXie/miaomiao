@@ -16,8 +16,9 @@
                     <i class="iconfont icon-xia"></i>
                 </div>
             </div>
+             <Clist/>
         </div>
-        <Clist/>>
+       
       <TabBar/>
     </div>
 </template>
@@ -35,6 +36,18 @@ export default {
 }
 </script>
 <style lang="scss">
+#main {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+#content {
+  flex: 1;
+  overflow: auto;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 50px;
     .cinema_menu{
         width: 100%;
         height: 45px;
@@ -43,5 +56,9 @@ export default {
         justify-content: space-around;
         align-items: center;
         background: white;
+        i{
+            vertical-align: middle;
+        }
     }
+}
 </style>
