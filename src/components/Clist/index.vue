@@ -1,5 +1,7 @@
 <template>
   <div class="cinema_body">
+    <Loading v-if="isLoading"/>
+    <Scroller v-else>
       <ul>
           <li v-for="item in cinemasList" :key="item.id">
               <div>
@@ -18,6 +20,7 @@
           
           
       </ul>
+      </Scroller>
   </div>
 </template>
 <script>
@@ -25,7 +28,8 @@ export default {
   name: "Clist",
   data(){
     return{
-        cinemasList:[]
+        cinemasList:[],
+        isLoading:true
     }
   },
   mounted(){
@@ -33,6 +37,7 @@ export default {
           var msg = res.data.msg;
           if(msg==="ok"){
             this.cinemasList = res.data.data.cinemas
+            this.isLoading=false;
           }
           
     })
