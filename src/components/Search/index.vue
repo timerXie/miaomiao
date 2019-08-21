@@ -3,36 +3,66 @@
         <div class="search_input">
             <div class="search_input_wrapper">
                 <i class="iconfont icon-icon_search"></i>
-                <input type="text">
+                <input type="text" v-model="message">
             </div>
         </div>
         <div class="search_result">
             <h3>电影/电视剧/综艺</h3>
             <ul>
-                <li>
-                    <div class="img"><img src="/images/phone1.jpg" alt=""></div>
+                <li v-for="item in moviesList" :key="item.id">
+                    <div class="img"><img :src="item.img |setWH('128.180')" alt=""></div>
                     <div class="info">
-                        <p><span>无名之辈</span><span>8.5</span></p>
-                        <p>A cool Fish</p>
-                        <p>剧情，喜剧，犯罪</p>
-                        <p>2019-3-23</p>
+                        <p><span>{{item.nm}}</span><span>{{item.sc}}</span></p>
+                        <p>{{item.enm}}</p>
+                        <p>{{item.cat}}</p>
+                        <p>{{item.rt}}</p>
                     </div>
                 </li>
-                <li>
-                    <div class="img"><img src="/images/phone1.jpg" alt=""></div>
-                    <div class="info">
-                        <p><span>无名之辈</span><span>8.5</span></p>
-                        <p>A cool Fish</p>
-                        <p>剧情，喜剧，犯罪</p>
-                        <p>2019-3-23</p>
-                    </div>
-                </li>
+                
             </ul>
         </div>
     </div>
 </template>
 <script>
 export default {
+    name:"Search",
+    data(){
+        return{
+            message:"",
+            moviesList:[]
+        }
+    },
+    methods:{
+        cancelRequest(){
+            if(typeof this.source==="function"){
+                this.source("终止请求")
+            }
+        }
+    },
+
+    watch:{
+        message(newval){
+           this.cancelRequest()
+            this.axios.get("/api/searchList?cityId=10&kw="+newval,{
+                cancelToken:new this.axios.CancelToken((c)=>{this.source=c})
+            }).then((res)=>{
+                
+                var msg = res.data.msg;
+                var movies =res.data.data.movies;
+                if(msg&&movies){
+                    this.moviesList = res.data.data.movies.list
+                }
+            }).catch((err)=>{
+                if(this.axios.isCancel(err)){
+                    console.log("Request canceled",err,message);
+                    
+                }else{
+                    console.log(err);
+                    
+                }
+            })
+        }
+    }
     
 }
 </script>
@@ -97,6 +127,8 @@ export default {
                   display: flex;
                   line-height: 22px;
                   font-size: 12px;
+                  white-space: nowrap;
+                  text-overflow: ellipsis;
                   &:nth-of-type(1) span:nth-of-type(1){
                     font-size: 18px;
                     flex: 1;

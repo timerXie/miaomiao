@@ -1,38 +1,41 @@
 <template>
     <div class="movie_body">
         <ul>
-            <li>
-                <div class="pic_show"><img src="/images/phone1.jpg" alt=""></div>
+            <li v-for="item in comingList" :key="item.id">
+                <div class="pic_show"><img :src="item.img | setWH('128.180')" alt=""></div>
                 <div class="info_list">
-                    <h2>无名之辈</h2>
-                    <p><span class="grade">2345</span>人想看</p>
-                    <p>主演：陈建品，任素汐，盘品龙</p>
-                    <p>今天55家影院放映607场</p>
+                    <h2>{{item.nm}}</h2>
+                    <p><span class="grade">{{item.wish}}</span>人想看</p>
+                    <p>主演：{{item.star}}</p>
+                    <p>{{item.rt}}</p>
                 </div>
                 <div class="btn_pre">
                     预售
                 </div>
 
             </li>
-            <li>
-                <div class="pic_show"><img src="/images/phone1.jpg" alt=""></div>
-                <div class="info_list">
-                    <h2>无名之辈</h2>
-                    <p><span class="grade">2345</span>人想看</p>
-                    <p>主演：陈建品，任素汐，盘品龙</p>
-                    <p>今天55家影院放映607场</p>
-                </div>
-                <div class="btn_pre">
-                    预售
-                </div>
-
-            </li>
+           
         </ul>
     </div>
 </template>
 <script>
 export default {
-    name:"ComeSoon"
+    name:"ComeSoon",
+    data(){
+   return{
+       comingList:[]
+   }
+    },
+    mounted(){
+        this.axios.get("/api/movieComingList?cityId=10").then((res)=>{
+            console.log(res);
+            
+            var msg = res.data.msg;
+            if(msg==="ok"){
+                this.comingList = res.data.data.comingList
+            }
+        })
+    }
 }
 </script>
 <style lang="scss" scoped>
