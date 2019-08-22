@@ -112,15 +112,22 @@ export default {
                 .detail_list_bg{
                      width: 100%;
                     height: 100%;
-                    background:url(/images/pgone1.jpg);
+                    background:url(/images/phone1.jpg) 0 40%;
                     filter:blur(20px);
-                    background: #000;
+                    background-size: cover;
+                    position: absolute;
+                    left: 0;
+                    top: 0;
                 }
                 .detail_list_filter{
                     width: 100%;
                     height: 100%;
                     background-color: #40454d;
                     opacity: .55;
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    z-index: 1;
 
                 }
                 .detail_list_content{
