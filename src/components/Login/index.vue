@@ -21,6 +21,7 @@ export default {};
 <style lang="scss">
 .login_body {
   width: 100%;
+    // margin: 0 10px;
   .login_text {
     width: 100%;
     height: 40px;
@@ -28,6 +29,8 @@ export default {};
     border-bottom: 1px solid #ccc;
     margin-bottom: 5px;
     outline: none;
+
+    padding-left: 10px; 
     background: #c7c569;
   }
   .login_btn {
