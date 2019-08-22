@@ -29,14 +29,18 @@ export default {
   data(){
     return{
         cinemasList:[],
-        isLoading:true
+        isLoading:true,
+        preCityId:-1
     }
   },
-  mounted(){
-    this.axios.get("/api/cinemaList?cityId=10").then((res)=>{
+  activated(){
+     var cityId= this.$store.state.city.id
+     if(this.preCityId===cityId){return}
+    this.axios.get("/api/cinemaList?cityId="+cityId).then((res)=>{
           var msg = res.data.msg;
           if(msg==="ok"){
             this.cinemasList = res.data.data.cinemas
+            this.preCityId=cityId;
             this.isLoading=false;
           }
           

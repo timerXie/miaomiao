@@ -19,8 +19,8 @@
         <router-view />
       </keep-alive>
     </div>
-
     <TabBar />
+    <router-view name="detail"/>
   </div>
 </template>
 <script>
@@ -42,7 +42,7 @@ export default {
         var nm = res.data.data.nm;
          var id = res.data.data.id;
          if(this.$store.state.city.id==id){return;}
-                  console.log(this.$store.state.city.id);
+                  
         messageBox({
           title: "定位",
           content: nm,
